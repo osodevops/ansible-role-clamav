@@ -1,0 +1,137 @@
+---
+# See the defaults for OS-specific vars inside the vars/ directory.
+# clamav_packages: []
+# clamav_daemon_config_path: ''
+
+clamav_daemon_localsocket: /var/run/clamd.scan/clamd.sock
+clamav_daemon_config_path: /etc/clamd.d/scan.conf
+__clamav_daemon: 'clamd@scan'
+__clamav_freshclam_daemon: 'clamd-freshclam'
+__clamav_packages:
+  - clamav
+  - clamav-update
+  - clamav-scanner-systemd
+
+clamav_daemon_configuration_changes:
+  - regexp: '^.*Example$'
+    state: absent
+  - regexp: '^.*LocalSocket .*$'
+    line: 'LocalSocket {{ clamav_daemon_localsocket }}'
+
+# clamav_daemon: 'clamav-daemon'
+clamav_daemon_state: started
+clamav_daemon_enabled: true
+
+# clamav_freshclam_daemon: 'clamav-freshclam'
+clamav_freshclam_daemon_state: started
+clamav_freshclam_daemon_enabled: true
+
+# /etc/clamd.d/scan.conf
+log_file: "/var/log/clamd.scan"
+log_file_max_size: "10m"
+log_time: "yes"
+log_clean: "no"
+log_sys_log: "no"
+log_facility: "LOG_LOCAL6"
+log_verbose: "no"
+log_rotate: "no"
+prelude_enable: "no"
+prelude_analyzer_name: "ClamAV"
+extended_detection_info: "yes"
+pid_file: "disabled"
+temporary_directory: "/tmp"
+official_database_only: "no"
+local_socket: "disabled"
+local_socet_group: "disabled"
+local_socket_mode: "disabled"
+fix_stale_socket: "yes"
+tcp_socket: "no"
+tcp_addr: "no"
+max_connection_queue_length: "200"
+stream_max_length: "25M"
+stream_min_port: "1024"
+stream_max_port: "2048"
+max_threads: "10"
+read_timeout: "120"
+connection_read_timeout: "30"
+send_buf_timeout: "500"
+max_queue: "100"
+idle_timeout: "30"
+max_directory_recursion: "15"
+follow_directory_symlinks: "no"
+follow_file_symlinks: "yes"
+cross_file_systems: "yes"
+self_check: "600"
+concurrent_database_reload: "yes"
+virus_event: "no"
+user: "clamscan"
+exit_on_oom: "no"
+foreground: "no"
+debug: "no"
+leave_temporary_files: "no"
+allow_all_match_scan: "no"
+detect_pua: "no"
+force_to_disk: "no"
+disable_cache: "no"
+heuristic_alerts: "yes"
+heuristic_scan_precedence: "no"
+alert_broken_executables: "no"
+alert_encrypted: "no"
+alert_encrypted_archive: "no"
+alert_encrypted_doc: "no"
+alert_ole2_macros: "no"
+alert_phishing_ssl_mismatch: "no"
+alert_phishing_cloak: "no"
+alert_partition_intersection: "no"
+scan_pe: "no"
+scan_elf: "no"
+disable_cert_check: "no"
+scan_ole2: "yes"
+scan_pdf: "yes"
+scan_swf: "yes"
+scan_xml_docs: "yes"
+scan_hwp3: "yes"
+scan_mail: "yes"
+scan_partial_messages: "no"
+phishing_signatures: "yes"
+phishing_scan_urls: "yes"
+structured_data_detection: "no"
+structured_min_credit_card_count: "3"
+structured_cc_only: "no"
+structured_min_ssn_count: "3"
+structured_ssn_format_normal: "yes"
+structured_ssn_format_stripped: "no"
+scan_html: "yes"
+scan_archive: "yes"
+max_scan_time: "120000"
+max_scan_size: "100M"
+max_file_size: "25M"
+max_recursion: "16"
+max_files: "10000"
+max_embedded_pe: "10M"
+max_html_normalize: "10M"
+max_html_no_tags: "2M"
+max_script_normalize: "5M"
+max_zip_type_rcg: "1M"
+max_partitions: "50"
+max_icons_pe: "100"
+max_rec_hwp3: "16"
+pcre_match_limit: "100000"
+pcre_rec_match_limit: "2000"
+pcre_max_file_size: "25M"
+alert_exceeds_max: "no"
+on_access_max_file_size: "5M"
+on_access_max_threads: "5"
+on_access_curl_timeout: "5000"
+on_access_disable_ddd: "no"
+on_access_prevention: "no"
+on_access_deny_on_error: "no"
+on_access_extra_scanning: "no"
+on_access_exclude_root_uid: "no"
+on_access_exclude_uid: "disabled"
+on_access_exclude_uname: "disabled"
+on_access_retry_attempts: "0"
+bytecode: "yes"
+bytecode_security: "TrustSigned"
+bytecode_unsigned: "no"
+bytecode_timeout: "5000"
