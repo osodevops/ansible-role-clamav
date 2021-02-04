@@ -1,0 +1,122 @@
+# see: https://linux.die.net/man/5/clamd.conf
+LogFile {{ log_file }}
+LogFileMaxSize {{ log_file_max_size }}
+LogTime {{ log_time }}
+LogClean {{ log_clean }}
+LogSyslog {{ log_sys_log }}
+LogFacility {{ log_facility }}
+LogVerbose {{ log_verbose }}
+LogRotate {{ log_rotate }}
+PreludeEnable {{ prelude_enable }}
+PreludeAnalyzerName {{ prelude_analyzer_name }}
+ExtendedDetectionInfo {{ extended_detection_info }}
+#PidFile {{ pid_file }}
+TemporaryDirectory {{ temporary_directory }}
+OfficialDatabaseOnly {{ official_database_only }}
+LocalSocket {{ local_socket }}
+#LocalSocketGroup {{ local_socet_group }}
+#LocalSocketMode {{ local_socket_mode }}
+FixStaleSocket {{ fix_stale_socket }}
+#TCPSocket {{ tcp_socket }}
+TCPAddr {{ tcp_addr }}
+MaxConnectionQueueLength {{ max_connection_queue_length }}
+StreamMaxLength {{ stream_max_length }}
+StreamMinPort {{ stream_min_port }}
+StreamMaxPort {{ stream_max_port }}
+MaxThreads {{ max_threads }}
+ReadTimeout {{ read_timeout }}
+CommandReadTimeout {{ connection_read_timeout }}
+SendBufTimeout {{ send_buf_timeout }}
+MaxQueue {{ max_queue }}
+IdleTimeout {{ idle_timeout }}
+MaxDirectoryRecursion {{ max_directory_recursion }}
+FollowDirectorySymlinks {{ follow_directory_symlinks }}
+FollowFileSymlinks {{ follow_file_symlinks }}
+CrossFilesystems {{ cross_file_systems }}
+SelfCheck {{ self_check }}
+ConcurrentDatabaseReload {{ concurrent_database_reload }}
+VirusEvent {{ virus_event }}
+User {{ user }}
+ExitOnOOM {{ exit_on_oom }}
+Foreground {{ foreground }}
+Debug {{ debug }}
+LeaveTemporaryFiles {{ leave_temporary_files }}
+AllowAllMatchScan {{ allow_all_match_scan }}
+DetectPUA {{ detect_pua }}
+ForceToDisk {{ force_to_disk }}
+DisableCache {{ disable_cache }}
+HeuristicAlerts {{ heuristic_alerts }}
+HeuristicScanPrecedence {{ heuristic_scan_precedence }}
+AlertBrokenExecutables {{ alert_broken_executables }}
+AlertEncrypted {{ alert_encrypted }}
+AlertEncryptedArchive {{ alert_encrypted_archive }}
+AlertEncryptedDoc {{ alert_encrypted_doc }}
+AlertOLE2Macros {{ alert_ole2_macros }}
+AlertPhishingSSLMismatch {{ alert_phishing_ssl_mismatch }}
+AlertPhishingCloak {{ alert_phishing_cloak }}
+AlertPartitionIntersection {{ alert_partition_intersection }}
+ScanPE {{ scan_pe }}
+ScanELF {{ scan_elf }}
+DisableCertCheck {{ disable_cert_check }}
+ScanOLE2 {{ scan_ole2 }}
+ScanPDF {{ scan_pdf }}
+ScanSWF {{ scan_swf }}
+ScanXMLDOCS {{ scan_xml_docs }}
+ScanHWP3 {{ scan_hwp3 }}
+ScanMail {{ scan_mail }}
+ScanPartialMessages {{ scan_partial_messages }}
+PhishingSignatures {{ phishing_signatures }}
+PhishingScanURLs {{ phishing_scan_urls }}
+StructuredDataDetection {{ structured_data_detection }}
+StructuredMinCreditCardCount {{ structured_min_credit_card_count }}
+StructuredCCOnly {{ structured_cc_only }}
+StructuredMinSSNCount {{ structured_min_ssn_count }}
+StructuredSSNFormatNormal {{ structured_ssn_format_normal }}
+StructuredSSNFormatStripped {{ structured_ssn_format_stripped }}
+ScanHTML {{ scan_html }}
+MaxScanTime {{ max_scan_time }}
+MaxScanSize {{ max_scan_size }}
+MaxFileSize {{ max_file_size }}
+MaxRecursion {{ max_recursion }}
+MaxFiles {{ max_files }}
+MaxEmbeddedPE {{ max_embedded_pe }}
+MaxHTMLNormalize {{ max_html_normalize }}
+MaxScriptNormalize {{ max_script_normalize }}
+MaxZipTypeRcg {{ max_zip_type_rcg }}
+MaxPartitions {{ max_partitions }}
+MaxIconsPE {{ max_icons_pe }}
+MaxRecHWP3 {{ max_rec_hwp3 }}
+PCREMatchLimit {{ pcre_match_limit }}
+PCRERecMatchLimit {{ pcre_rec_match_limit }}
+PCREMaxFileSize {{ pcre_max_file_size }}
+AlertExceedsMax {{ alert_exceeds_max }}
+OnAccessMaxFileSize {{ on_access_max_file_size }}
+OnAccessMaxThreads {{ on_access_max_threads }}
+OnAccessCurlTimeout {{ on_access_curl_timeout }}
+OnAccessDisableDDD {{ on_access_disable_ddd }}
+OnAccessPrevention {{ on_access_prevention }}
+OnAccessDenyOnError {{ on_access_deny_on_error }}
+OnAccessExtraScanning {{ on_access_extra_scanning }}
+OnAccessExcludeRootUID {{ on_access_exclude_root_uid }}
+#OnAccessExcludeUID {{ on_access_exclude_uid }}
+OnAccessExcludeUname {{ on_access_exclude_uname }}
+OnAccessRetryAttempts {{ on_access_retry_attempts }}
+Bytecode {{ bytecode }}
+BytecodeSecurity {{ bytecode_security }}
+BytecodeUnsigned {{ bytecode_unsigned }}
+BytecodeTimeout {{ bytecode_timeout }}
+
+# Potential multiple term directrives
+#ExcludePath ^/proc/
+#ExcludePath ^/sys/
+#ExcludePUA NetTool
+#ExcludePUA PWTool
+#IncludePUA Spy
+#IncludePUA Scanner
+#IncludePUA RAT
+#OnAccessIncludePath /home
+#OnAccessIncludePath /students
+#OnAccessExcludePath /home/user
+#OnAccessExcludePath /home/user2
+#OnAccessMountPath /
+#OnAccessMountPath /home/user

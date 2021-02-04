@@ -1,2 +1,5 @@
 # ansible-role-clamav
-Ansible role for the provisioning of ClamAV from binaries
+Ansible role to install clamav on RHEL/CENTOS
+
+## Requirements
+None.
